@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles/home.css') }}"
+    />
+    <title>Diabetes Predictor</title>
+  </head>
+  <body>
+    <div>
+      
+      <div class="nav">
+        <input type="checkbox" id="nav-check" />
+        <div class="nav-header">
+          <div class="nav-title"><a href="/home">Home</a></div>
+        </div>
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+
+        <div class="nav-links">
+            <a href="/" >Diabetes Predictor</a>
+          <a href="/heart" >Heart Disease Predictor</a>
+          <a href="/parkinsons" >Parkinson's Disease Predictor</a>
+          <a href="/kidney" >Kidney Disease Predictor</a>
+
+
+        </div>
+      </div>
+    </div>
+    <section>
+      <div class="container">
+        <h2 id="title">Welcome to 
+          Disease prediction system</h2><br>
+
+       
+      <!-- </div> -->
+    
+          <div class="row">
+            <!-- Free Tier -->
+            <div class="col-lg-4">
+              <div class="card mb-5 mb-lg-0">
+                <div class="card-body">
+                  <h5 class="card-title text-muted text-uppercase text-center">
+                    DIABETES PREDICTION
+                  </h5>
+  
+                  <hr />
+                  <p class="">
+                    Diabetes is a chronic condition where the body struggles to regulate blood sugar levels. It can lead to symptoms like frequent urination, increased thirst, fatigue, and slow wound healing. If left untreated, it can cause complications such as heart disease, stroke, kidney failure, and nerve damage.
+                  </p>
+                  <a href="/"
+                    class="btn btn-block btn-danger text-uppercase"
+                    >KNOW YOUR DIABETES STATUS</a
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Plus Tier -->
+            <div class="col-lg-4">
+              <div class="card mb-5 mb-lg-0">
+                <div class="card-body">
+                  <h5 class="card-title text-muted text-uppercase text-center">
+                    HEART DISEASE PREDICTION
+                  </h5>
+  
+                  <hr />
+                  <p class="">
+                    Heart disease, or cardiovascular disease, encompasses conditions affecting the heart's function. It's often caused by factors like high blood pressure, high cholesterol, smoking, obesity, and inactivity. Symptoms may include chest pain, shortness of breath, fatigue, and palpitations, and it can lead to heart attacks, stroke, and other serious issues.
+                  </p>
+                  <a href = "/heart"
+                    class="btn btn-block btn-dark text-uppercase"
+                    >KNOW YOUR HEART STATUS</a
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Pro Tier -->
+            <div class="col-lg-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title text-muted text-uppercase text-center">
+                    PARKINSON'S DISEASE PREDICTION
+                  </h5>
+  
+                  <hr />
+                  <p class="">
+                    Parkinson's disease is a progressive nervous system disorder affecting movement. It's characterized by symptoms like tremors, stiffness, slow movement, and impaired balance. Non-motor symptoms such as cognitive changes and depression may also occur. While there's no cure, treatments like medication and therapy can help manage symptoms.
+
+                    
+                  </p>
+                  <a
+                    href="/parkinsons"
+                    class="btn btn-block btn-primary text-uppercase"
+                    >KNOW PARKINSON'S STATUS</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title text-muted text-uppercase text-center">
+                    KIDNEY DISEASE PREDICTION
+                  </h5>
+  
+                  <hr />
+                  <p class="">
+                    Kidney disease, also known as renal disease, occurs when the kidneys are damaged and can't filter blood properly. This can lead to a buildup of waste and fluid in the body, causing symptoms like fatigue, swelling, changes in urination, nausea, and itchiness. Risk factors include diabetes, high blood pressure, and family history. If left untreated, kidney disease can progress to kidney failure, requiring dialysis or transplantation for survival. Early detection and management can help slow the progression and improve outcomes.
+
+                    
+                  </p>
+                  <a
+                    href="/kidney"
+                    class="btn btn-block btn-primary text-uppercase"
+                    >KNOW KIDNEY'S STATUS</a
+                  >
+                </div>
+              </div>
+            </div>
+
+
+
+
+          </div>
+       
+        </div>
+
+
+
+    </section>
+  </body>
+  <script>
+    function savedetails() {
+      console.log("xdvjKvKVJC");
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      console.log(name, email);
+      localStorage.setItem("email", email);
+      localStorage.setItem("name", name);
+      console.log("fshksu");
+    }
+  </script>
+</html>

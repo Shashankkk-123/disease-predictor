@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles/style.css') }}"
+    />
+    <title>Diabetes Predictor</title>
+  </head>
+  <body>
+    <div>
+      
+      <div class="nav">
+        <input type="checkbox" id="nav-check" />
+        <div class="nav-header">
+          <div class="nav-title"><a href="/home">Home</a></div>
+        </div>
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+
+        <div class="nav-links">
+            <a href="/" >Diabetes Predictor</a>
+          <a href="/heart" >Heart Disease Predictor</a>
+          <a href="/parkinsons" >Parkinson's Disease Predictor</a>
+          <a href="/kidney" >Kidney Disease Predictor</a>
+
+
+        </div>
+      </div>
+    </div>
+    <section>
+      <div class="container">
+        <h1 id="title">Diabetes Predictor</h1>
+
+        <form
+          id="survey-form"
+          action="/api"
+          method="post"
+          submit="savedetails()"
+        >
+          <div class="inputwrap col">
+            <label for="name" id="name-label" class="bold">Name</label>
+            <input
+              class="mt8"
+              type="text"
+              name="name"
+              required
+              placeholder="Enter your Name"
+              id="name"
+            />
+          </div>
+          <div class="inputwrap col">
+            <label for="email" id="email-label" class="bold">Email</label>
+            <input
+              class="mt8"
+              type="email"
+              name="email"
+              required
+              placeholder="Enter your Email"
+              id="email"
+            />
+          </div>
+          <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Number of Pregnancies</label>
+            <input
+              class="mt8"
+              type="number"
+              name="Pregnancies"
+              min="0"
+              step="any"
+              max="15"
+              placeholder="range of 0 to 15"
+              required
+            />
+          </div>
+          <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Glucose Level</label>
+            <input
+              class="mt8"
+              type="number"
+              name="Glucose"
+              min="0"
+              step="any"
+              max="250"
+              placeholder="range of 0 to 250"
+              required
+            />
+          </div>
+          <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Blood Pressure value</label>
+            <input
+              class="mt8"
+              type="number"
+              name="BloodPressure"
+              min="0"
+              step="any"
+
+              max="200"
+              placeholder="range of 0 to 200"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Skin Thickness value</label>
+            <input
+              class="mt8"
+              type="number"
+              name="SkinThickness"
+              min="0"
+              max="150"
+              placeholder="range of 0 to 150"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Insulin Level</label>
+            <input
+              class="mt8"
+              type="number"
+              name="Insulin"
+              min="0"
+              step="any"
+
+              max="900"
+              placeholder="range of 0 to 900"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">BMI value</label>
+            <input
+              class="mt8"
+              type="number"
+              name="BMI"
+              min="0"
+              step="any"
+
+              max="80"
+              placeholder="range of 0 to 80"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Diabetes Pedigree Function value</label>
+            <input
+              class="mt8"
+              type="number"
+              name="DiabetesPedigreeFunction"
+              min="0"
+              step="any"
+
+              max="3"
+              placeholder="range of 0 to 3"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Age of the Person</label>
+            <input
+              class="mt8"
+              type="number"
+              name="Age"
+              min="0"
+              step="any"
+
+              max="150"
+              placeholder="range of 0 to 150"
+              required
+            />
+          </div>
+         
+          
+          <button type="submit" id="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+  </body>
+  <script>
+    function savedetails() {
+      console.log("xdvjKvKVJC");
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      console.log(name, email);
+      localStorage.setItem("email", email);
+      localStorage.setItem("name", name);
+      console.log("fshksu");
+    }
+  </script>
+</html>

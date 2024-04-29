@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles/style.css') }}"
+    />
+    <title>Kidney Disease Predictor</title>
+  </head>
+  <body>
+    <div>
+      
+      <div class="nav">
+        <input type="checkbox" id="nav-check" />
+        <div class="nav-header">
+          <div class="nav-title"><a href="/home">Home</a></div>
+        </div>
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+
+        <div class="nav-links">
+            <a href="/" >Diabetes Predictor</a>
+          <a href="/heart" >Heart Disease Predictor</a>
+          <a href="/parkinsons" >Parkinson's Disease Predictor</a>
+          <a href="/kidney" >Kidney Disease Predictor</a>
+
+
+        </div>
+      </div>
+    </div>
+    <section>
+      <div class="container">
+        <h1 id="title">Kidney Disease Predictor</h1>
+
+        <form
+          id="survey-form"
+          action="/api3"
+          method="post"
+          submit="savedetails()"
+        >
+          <div class="inputwrap col">
+            <label for="name" id="name-label" class="bold">Name</label>
+            <input
+              class="mt8"
+              type="text"
+              name="name"
+              required
+              placeholder="Enter your Name"
+              id="name"
+            />
+          </div>
+          <div class="inputwrap col">
+            <label for="email" id="email-label" class="bold">Email</label>
+            <input
+              class="mt8"
+              type="email"
+              name="email"
+              required
+              placeholder="Enter your Email"
+              id="email"
+            />
+          </div>
+          <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Age (in years)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="age"
+              min="0"
+              step="any"
+              max="150"
+              placeholder="range of 0 to 150"
+              required
+            />
+          </div>
+          <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Blood Pressure (in mm/Hg)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="blood_pressure"
+              min="0"
+              step="any"
+              max="250"
+              placeholder="range of 0 to 250"
+              required
+            />
+          </div>
+          <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Specific Gravity</label>
+            <input
+              class="mt8"
+              type="number"
+              name="specific_gravity"
+              min="0"
+              step="any"
+
+              max="2"
+              placeholder="range of 0 to 2"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Albumin (0, 1, 2, 3, 4, 5)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="albumin"
+              min="0"
+              max="5"
+              placeholder="range of 0 to 5"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Sugar (0, 1, 2, 3, 4, 5)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="sugar"
+              min="0"
+              step="any"
+
+              max="5"
+              placeholder="range of 0 to 5"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Red Blood Cells (0: Abnormal; 1: Normal)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="red_blood_cells"
+              min="0"
+              step="any"
+
+              max="1"
+              placeholder="range of 0 to 1"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Pus Cell (0: Abnormal; 1: Normal)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="pus_cell"
+              min="0"
+              step="any"
+
+              max="1"
+              placeholder="range of 0 to 1"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Pus Cell Clumps (0: Not Present; 1: Present)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="pus_cell_clumps"
+              min="0"
+              step="any"
+
+              max="1"
+              placeholder="range of 0 to 1"
+              required
+            />
+          </div>
+         
+
+
+          <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Bacteria (0: Not Present; 1: Present)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="bacteria"
+              min="0"
+              step="any"
+
+              max="1"
+              placeholder="range of 0 to 1"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Blood Glucose Random (in mgs/dl)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="blood_glucose_random"
+              min="0"
+              step="any"
+
+              max="500"
+              placeholder="range of 0 to 500"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Blood Urea (in mgs/dl)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="blood_urea"
+              min="0"
+              step="any"
+
+              max="400"
+              placeholder="range of 0 to 400"
+              required
+            />
+          </div><div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Serum Creatinine (in mgs/dl)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="serum_creatinine"
+              min="0"
+              step="any"
+
+              max="80"
+              placeholder="range of 0 to 80"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Sodium (in mEq/L)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="sodium"
+              min="0"
+              step="any"
+
+              max="200"
+              placeholder="range of 0 to 200"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Potassium (in mEq/L)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="potassium"
+              min="0"
+              step="any"
+
+              max="50"
+              placeholder="range of 0 to 50"
+              required
+            />
+          </div><div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Haemoglobin (in gms)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="haemoglobin"
+              min="0"
+              step="any"
+
+              max="20"
+              placeholder="range of 0 to 20"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Packed Cell Volume</label>
+            <input
+              class="mt8"
+              type="number"
+              name="packed_cell_volume"
+              min="0"
+              step="any"
+
+              max="60"
+              placeholder="range of 0 to 60"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">White Blood Cell Count (in cells/cumm)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="white_blood_cell_count"
+              min="0"
+              step="any"
+
+              max="30000"
+              placeholder="range of 0 to 30,000"
+              required
+            />
+          </div><div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">RRed Blood Cell Count (in millions/cmm)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="red_blood_cell_count"
+              min="0"
+              step="any"
+
+              max="8"
+              placeholder="range of 0 to 8"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Hypertension (0: No; 1: Yes)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="hypertension"
+              min="0"
+              step="any"
+
+              max="1"
+              placeholder="range of 0 to 1"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Diabetes Mellitus (0: No; 1: Yes)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="diabetes_mellitus"
+              min="0"
+              step="any"
+
+              max="1"
+              placeholder="range of 0 to 1"
+              required
+            />
+          </div>
+
+
+          <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Coronary Artery Disease (0: No; 1: Yes)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="coronary_artery_disease"
+              min="0"
+              step="any"
+
+              max="1"
+              placeholder="range of 0 to 1"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Appetite (0: Good; 1: Poor)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="appetite"
+              min="0"
+              step="any"
+
+              max="1"
+              placeholder="range of 0 to 1"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Pedal Edema (0: No; 1: Yes)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="peda_edema"
+              min="0"
+              step="any"
+
+              max="1"
+              placeholder="range of 0 to 1"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Anemia (0: No; 1: Yes)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="aanemia"
+              min="0"
+              step="any"
+
+              max="1"
+              placeholder="range of 0 to 1"
+              required
+            />
+          </div>
+          
+          <button type="submit" id="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+  </body>
+  <script>
+    function savedetails() {
+      console.log("xdvjKvKVJC");
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      console.log(name, email);
+      localStorage.setItem("email", email);
+      localStorage.setItem("name", name);
+      console.log("fshksu");
+    }
+  </script>
+</html>

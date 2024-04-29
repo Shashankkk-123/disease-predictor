@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles/result.css') }}"
+    />
+    <title>Diabetes Predictor</title>
+    <script>
+      function printDiv() {
+        window.print();
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <div class="nav">
+        <input type="checkbox" id="nav-check" />
+        <div class="nav-header">
+          <div class="nav-title"><a href="/home">Home</a></div>
+        </div>
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+
+        <div class="nav-links">
+            <a href="/" >Diabetes Predictor</a>
+          <a href="/heart" >Heart Disease Predictor</a>
+          <a href="/parkinsons" >Parkinson's Disease Predictor</a>
+          <a href="/kidney" >Kidney Disease Predictor</a>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="card">
+    
+      <div class="details">
+        <h2>{{ result.personal_info[0] }}</h2>
+        <br />
+        <p>{{ result.personal_info[1] }}</p>
+        <hr />
+      </div>
+      <h3>Details Entered by you:</h3>
+      <table border="1">
+        {% for key, value in result.input_data.items() %}
+        <tr>
+          <th>{{ key }}</th>
+          <td>{{ value }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <hr />
+      <h3>Overall Result: {{ result.result }}</h3>
+      <div class="button-container">
+        <input
+          id="printButton"
+          type="button"
+          onclick="printDiv()"
+          value="Click To Generate Report"
+        />
+      </div>
+    </div>
+    
+  </body>
+  <script>
+    let name = localStorage.getItem("name");
+    let email = localStorage.getItem("email");
+    document.getElementById("name").innerHTML = name;
+    document.getElementById("email").innerHTML = email;
+  </script>
+</html>

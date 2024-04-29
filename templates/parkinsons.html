@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles/style.css') }}"
+    />
+    <title>Parkinson's Disease Predictor</title>
+  </head>
+  <body>
+    <div>
+      <div class="nav">
+        <input type="checkbox" id="nav-check" />
+        <div class="nav-header">
+          <div class="nav-title"><a href="/home">Home</a></div>
+        </div>
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+
+        <div class="nav-links">
+            <a href="/" >Diabetes Predictor</a>
+          <a href="/heart" >Heart Disease Predictor</a>
+          <a href="/parkinsons" >Parkinson's Disease Predictor</a>
+          <a href="/kidney" >Kidney Disease Predictor</a>
+
+
+        </div>
+      </div>
+    </div>
+    <section>
+      <div class="container">
+        <h1 id="title">Parkinson's Disease Predictor</h1>
+
+        <form
+          id="survey-form"
+          action="/api2"
+          method="post"
+          submit="savedetails()"
+        >
+          <div class="inputwrap col">
+            <label for="name" id="name-label" class="bold">Name</label>
+            <input
+              class="mt8"
+              type="text"
+              name="name"
+              required
+              placeholder="Enter your Name"
+              id="name"
+            />
+          </div>
+          <div class="inputwrap col">
+            <label for="email" id="email-label" class="bold">Email</label>
+            <input
+              class="mt8"
+              type="email"
+              name="email"
+              required
+              placeholder="Enter your Email"
+              id="email"
+            />
+          </div>
+          <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">MDVP Fo(Hz)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="fo"
+              min="0"
+              step="any"
+              max="300"
+              placeholder="range of 0 to 300"
+              required
+            />
+          </div>
+          <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">MDVP Fhi(Hz)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="fhi"
+              min="0"
+              step="any"
+              max="650"
+              placeholder="range of 0 to 650"
+              required
+            />
+          </div>
+          <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">MDVP Flo(Hz)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="flo"
+              min="0"
+              step="any"
+
+              max="300"
+              placeholder="range of 0 to 300"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">MDVP Jitter(%)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="Jitter_percent"
+              min="0"
+              max="1"
+              placeholder="range of 0 to 1"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">MDVP Jitter(Abs)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="Jitter_Abs"
+              min="0"
+              step="any"
+
+              max="1"
+              placeholder="range of 0 to 1"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">MDVP RAP</label>
+            <input
+              class="mt8"
+              type="number"
+              name="RAP"
+              min="0"
+              step="any"
+
+              max="1"
+              placeholder="range of 0 to 1"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">MDVP PPQ</label>
+            <input
+              class="mt8"
+              type="number"
+              name="PPQ"
+              min="0"
+              step="any"
+
+              max="1"
+              placeholder="range of 0 to 1"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Jitter DDP</label>
+            <input
+              class="mt8"
+              type="number"
+              name="DDP"
+              min="0"
+              step="any"
+
+              max="1"
+              placeholder="range of 0 to 1"
+              required
+            />
+          </div>
+         
+
+
+         <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">MDVP Shimmer</label>
+            <input
+              class="mt8"
+              type="number"
+              name="Shimmer"
+              min="0"
+              step="any"
+
+              max="1"
+              placeholder="range of 0 to 1"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">MDVP Shimmer(dB)</label>
+            <input
+              class="mt8"
+              type="number"
+              name="Shimmer_dB"
+              min="0"
+              step="any"
+
+              max="2"
+              placeholder="range of 0 to 2"
+              required
+            />
+          </div><div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Shimmer APQ3</label>
+            <input
+              class="mt8"
+              type="number"
+              name="APQ3"
+              min="0"
+              step="any"
+
+              max="1"
+              placeholder="range of 0 to 1"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Shimmer APQ5</label>
+            <input
+              class="mt8"
+              type="number"
+              name="APQ5"
+              min="0"
+              step="any"
+
+              max="1"
+              placeholder="range of 0 to 1"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">MDVP APQ</label>
+            <input
+              class="mt8"
+              type="number"
+              name="APQ"
+              min="0"
+              step="any"
+
+              max="1"
+              placeholder="range of 0 to 1"
+              required
+            />
+          </div>
+          <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Shimmer DDA</label>
+            <input
+              class="mt8"
+              type="number"
+              name="DDA"
+              min="0"
+              step="any"
+
+              max="1"
+              placeholder="range of 0 to 1"
+              required
+            />
+          </div><div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">NHR</label>
+            <input
+              class="mt8"
+              type="number"
+              name="NHR"
+              min="0"
+              step="any"
+
+              max="1"
+              placeholder="range of 0 to 1"
+              required
+            />
+          </div><div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">HNR</label>
+            <input
+              class="mt8"
+              type="number"
+              name="HNR"
+              min="0"
+              step="any"
+
+              max="40"
+              placeholder="range of 0 to 40"
+              required
+            />
+          </div><div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">RPDE</label>
+            <input
+              class="mt8"
+              type="number"
+              name="RPDE"
+              min="0"
+              step="any"
+
+              max="1"
+              placeholder="range of 0 to 1"
+              required
+            />
+          </div><div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">DFA</label>
+            <input
+              class="mt8"
+              type="number"
+              name="DFA"
+              min="0"
+              step="any"
+
+              max="1"
+              placeholder="range of 0 to 1"
+              required
+            />
+          </div>
+          <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">spread1</label>
+            <input
+              class="mt8"
+              type="number"
+              name="spread1"
+              min="-6"
+              step="any"
+
+              max="0"
+              placeholder="range of -6 to 0"
+              required
+            />
+          </div><div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">spread2</label>
+            <input
+              class="mt8"
+              type="number"
+              name="spread2"
+              min="0"
+              step="any"
+
+              max="1"
+              placeholder="range of 0 to 1"
+              required
+            />
+          </div><div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">D2</label>
+            <input
+              class="mt8"
+              type="number"
+              name="D2"
+              min="0"
+              step="any"
+
+              max="5"
+              placeholder="range of 0 to 5"
+              required
+            />
+          </div><div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">PPE</label>
+            <input
+              class="mt8"
+              type="number"
+              name="PPE"
+              min="0"
+              step="any"
+
+              max="1"
+              placeholder="range of 0 to 1"
+              required
+            />
+          </div>
+          
+          <button type="submit" id="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    </section>
+  </body>
+  <script>
+    function savedetails() {
+      console.log("xdvjKvKVJC");
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      console.log(name, email);
+      localStorage.setItem("email", email);
+      localStorage.setItem("name", name);
+      console.log("fshksu");
+    }
+  </script>
+</html>

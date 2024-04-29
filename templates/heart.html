@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles/style.css') }}"
+    />
+    <title>Heart Disease Predictor</title>
+  </head>
+  <body>
+    <div>
+      <div class="nav">
+        <input type="checkbox" id="nav-check" />
+        <div class="nav-header">
+          <div class="nav-title"><a href="/home">Home</a></div>
+        </div>
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+
+        <div class="nav-links">
+            <a href="/" >Diabetes Predictor</a>
+          <a href="/heart" >Heart Disease Predictor</a>
+          <a href="/parkinsons" >Parkinson's Disease Predictor</a>
+          <a href="/kidney" >Kidney Disease Predictor</a>
+
+
+        </div>
+      </div>
+    </div>
+    <section>
+      <div class="container">
+        <h1 id="title">Heart Disease Predictor</h1>
+
+        <form
+          id="survey-form"
+          action="/api1"
+          method="post"
+          submit="savedetails()"
+        >
+          <div class="inputwrap col">
+            <label for="name" id="name-label" class="bold">Name</label>
+            <input
+              class="mt8"
+              type="text"
+              name="name"
+              required
+              placeholder="Enter your Name"
+              id="name"
+            />
+          </div>
+          <div class="inputwrap col">
+            <label for="email" id="email-label" class="bold">Email</label>
+            <input
+              class="mt8"
+              type="email"
+              name="email"
+              required
+              placeholder="Enter your Email"
+              id="email"
+            />
+          </div>
+          <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Age</label>
+            <input
+              class="mt8"
+              type="number"
+              name="age"
+              min="0"
+              step="any"
+              max="120"
+              placeholder="range of 0 to 150"
+              required
+            />
+          </div>
+          <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Sex</label>
+            <input
+              class="mt8"
+              type="number"
+              name="sex"
+              min="0"
+              step="any"
+              max="1"
+              placeholder="range of 0(Male) to 1(Female)"
+              required
+            />
+          </div>
+          <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Chest Pain types</label>
+            <input
+              class="mt8"
+              type="number"
+              name="cp"
+              min="0"
+              step="any"
+
+              max="3"
+              placeholder="range of 0 to 3"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Resting Blood Pressure</label>
+            <input
+              class="mt8"
+              type="number"
+              name="trestbps"
+              min="0"
+              max="250"
+              placeholder="range of 0 to 250"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Serum Cholestoral in mg/dl</label>
+            <input
+              class="mt8"
+              type="number"
+              name="chol"
+              min="0"
+              step="any"
+
+              max="900"
+              placeholder="range of 0 to 900"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Fasting Blood Sugar</label>
+            <input
+              class="mt8"
+              type="number"
+              name="fbs"
+              min="0"
+              step="any"
+
+              max="2"
+              placeholder="range of 0 to 2"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Resting Electrocardiographic results</label>
+            <input
+              class="mt8"
+              type="number"
+              name="restecg"
+              min="0"
+              step="any"
+
+              max="3"
+              placeholder="range of 0 to 3"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Maximum Heart Rate achieved</label>
+            <input
+              class="mt8"
+              type="number"
+              name="thalach"
+              min="0"
+              step="any"
+
+              max="250"
+              placeholder="range of 0 to 250"
+              required
+            />
+          </div>
+         
+
+
+         <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Exercise Induced Angina</label>
+            <input
+              class="mt8"
+              type="number"
+              name="exang"
+              min="0"
+              step="any"
+
+              max="2"
+              placeholder="range of 0 to 2"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">ST depression induced by exercise</label>
+            <input
+              class="mt8"
+              type="number"
+              name="oldpeak"
+              min="0"
+              step="any"
+
+              max="7"
+              placeholder="range of 0 to 7"
+              required
+            />
+          </div><div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Slope of the peak exercise ST segment</label>
+            <input
+              class="mt8"
+              type="number"
+              name="slope"
+              min="0"
+              step="any"
+
+              max="3"
+              placeholder="range of 0 to 3"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">Major vessels colored by flourosopy</label>
+            <input
+              class="mt8"
+              type="number"
+              name="ca"
+              min="0"
+              step="any"
+
+              max="5"
+              placeholder="range of 0 to 5"
+              required
+            />
+          </div> <div class="inputwrap col">
+            <label for="number" id="number-label" required class="bold">thal</label>
+            <input
+              class="mt8"
+              type="number"
+              name="thal"
+              min="0"
+              step="any"
+
+              max="5"
+              placeholder="range of 0 to 5"
+              required
+            />
+          </div>
+          
+          <button type="submit" id="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    </section>
+  </body>
+  <script>
+    function savedetails() {
+      console.log("xdvjKvKVJC");
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      console.log(name, email);
+      localStorage.setItem("email", email);
+      localStorage.setItem("name", name);
+      console.log("fshksu");
+    }
+  </script>
+</html>

@@ -1,0 +1,167 @@
+/* Please take a look at this video! https://www.youtube.com/watch?v=M7MuHxHI8Xc */
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("https://img.freepik.com/free-vector/hospital-building-healthcare-cartoon-background-vector-illustration-with-ambulance-car-doctor-patient-nurses-medical-clinic-exterior_2175-1515.jpg?w=2000");
+  background-size: cover;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  width: 80%;
+  max-width: 800px;
+  text-align: center;
+  padding: 50px;
+  border: 3px solid black;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  position: relative;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Center the button horizontally */
+  margin-top: 20px;
+}
+
+
+.card .details h2 {
+  font-weight: 600;
+}
+
+.card .details p {
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+#printButtonContainer {
+  margin-top: 20px;
+}
+
+@media print {
+  .container {
+    display: block !important;
+  }
+
+  .card {
+    padding: 50px !important;
+    border: 3px solid black !important;
+    border-radius: 10px !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+.nav {
+  height: 50px;
+  width: 100%;
+  background-color: #4d4d4d;
+  position: relative;
+}
+
+.nav > .nav-header {
+  display: inline;
+}
+
+.nav > .nav-header > .nav-title {
+  display: inline-block;
+  font-size: 22px;
+  color: #fff;
+  padding: 10px 10px 10px 10px;
+}
+
+.nav > .nav-btn {
+  display: none;
+}
+
+.nav > .nav-links {
+  display: inline;
+  float: right;
+  font-size: 18px;
+}
+
+.nav > .nav-links > a {
+  display: inline-block;
+  padding: 13px 10px 13px 10px;
+  text-decoration: none;
+  color: #efefef;
+}
+
+.nav > .nav-links > a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.nav > #nav-check {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .nav > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  .nav > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  }
+  .nav > .nav-btn > label:hover,
+  .nav #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .nav > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
+  }
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #333;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+  }
+  .nav > .nav-links > a {
+    display: block;
+    width: 100%;
+  }
+  .nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  .nav > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+}
+#title {
+  font-size: bold;
+}
+
+
+.nav > .nav-header > .nav-title > a {
+  color: white; /* Set the color to white */
+}
